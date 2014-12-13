@@ -1,4 +1,4 @@
-require_relative 'helper'
+require 'test_helper'
 
 class BassistCell::FenderCell < Cell::ViewModel
 end
@@ -69,6 +69,6 @@ class InheritViewsTest < MiniTest::Spec
   it { FunkerCell.new(nil)._prefixes.must_equal ["inherit_views_test/funker", "inherit_views_test/slapper", "bassist"] }
 
   # test if normal cells inherit views.
-  it { cell("inherit_views_test/slapper").play.must_equal "Doo\n" }
-  it { cell("inherit_views_test/funker").play.must_equal "Doo\n" }
+  it { cell("inherit_views_test/slapper").play.must_equal "Doo" }
+  it { cell("inherit_views_test/funker").play.must_equal "Doo" }
 end

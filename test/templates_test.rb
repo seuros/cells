@@ -1,4 +1,4 @@
-require_relative 'helper'
+require 'test_helper'
 
 
 class TemplatesTest < MiniTest::Spec
@@ -7,8 +7,8 @@ class TemplatesTest < MiniTest::Spec
   let (:base) { ['test/fixtures'] }
 
   # existing.
-  it { Templates.new[base, ['bassist'], 'play', 'haml'].file.must_equal 'test/fixtures/bassist/play.haml' }
+  it { Templates.new[base, ['bassist'], 'play', 'erb'].file.must_equal 'test/fixtures/bassist/play.erb' }
 
   # not existing.
-  it { Templates.new[base, ["bassist"], "not-here", "haml"].must_equal nil }
+  it { Templates.new[base, ['bassist'], 'not-here', 'erb'].must_equal nil }
 end
